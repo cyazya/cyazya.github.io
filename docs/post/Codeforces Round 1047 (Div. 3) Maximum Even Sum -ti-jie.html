@@ -10,9 +10,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出。">
+<meta name="description" content="我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出，1 8对应的是2，7 7对应的是7，2 6对应的是3，9 16对应的是8，4 6对应的是3。">
 <meta property="og:title" content="Codeforces Round 1047 (Div. 3) Maximum Even Sum 题解">
-<meta property="og:description" content="我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出。">
+<meta property="og:description" content="我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出，1 8对应的是2，7 7对应的是7，2 6对应的是3，9 16对应的是8，4 6对应的是3。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cyazya.github.io/post/Codeforces%20Round%201047%20%28Div.%203%29%20Maximum%20Even%20Sum%20-ti-jie.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -73,7 +73,34 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出</p></div>
+<div class="markdown-body" id="postBody"><p>我们看一下题目所给的样例，试着自己推一下k的值是多少，不难推出，1 8对应的是2，7 7对应的是7，2 6对应的是3，9 16对应的是8，4 6对应的是3。可以发现，当b为偶数时，k的值为b的一半，b为奇数时，k为b本身。那么就有一个问题了，1 8对应的2这个不符合我们的结论，是不是错了呢？别急，试着把k=4代进去，可以发现，k=4时也是符合的，结论正确。以下是我的代码：#include &lt;bits/stdc++.h&gt;<br>
+#define int long long<br>
+#define endl "\n"<br>
+#define IOS ios::sync_with_stdio(0);cin.tie(0);cout.tie(0)<br>
+using namespace std;<br>
+signed main() {<br>
+IOS;<br>
+int T = 1;<br>
+cin &gt;&gt; T;<br>
+while (T--) {<br>
+int a,b;<br>
+int k,r;<br>
+cin&gt;&gt;a&gt;&gt;b;<br>
+if(b%2==0){<br>
+k=b/2;<br>
+r=2+a<em>k;<br>
+}else{<br>
+k=b;<br>
+r=1+a</em>k;<br>
+}<br>
+if(r%2==0){<br>
+cout&lt;&lt;r&lt;&lt;endl;<br>
+}else{<br>
+cout&lt;&lt;-1&lt;&lt;endl;<br>
+}<br>
+}<br>
+return 0;<br>
+}</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
